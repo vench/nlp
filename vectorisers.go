@@ -7,6 +7,8 @@ import (
 	"github.com/james-bowman/sparse"
 	"github.com/spaolacci/murmur3"
 	"gonum.org/v1/gonum/mat"
+	"io"
+	"encoding/json"
 )
 
 // Vectoriser provides a common interface for vectorisers that take a variable
@@ -310,4 +312,26 @@ func (p *Pipeline) FitTransform(docs ...string) (mat.Matrix, error) {
 		}
 	}
 	return matrix, nil
+}
+
+
+//
+func (c *CountVectoriser) Save(w io.Writer) error {
+	buf, err := json.Marshal(c.Vocabulary)
+	if err != nil {
+		return err
+	}
+
+	_, err = w.Write(buf)
+	return err
+}
+
+//
+func (c *CountVectoriser) Load(r io.Reader) error {
+	buf := make([]byte, 0)
+	_, err := r.Read(buf)
+	if err != nil {
+		return  err
+	}
+	return json.Unmarshal(buf, &c.Vocabulary)
 }
