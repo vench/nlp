@@ -315,17 +315,10 @@ func (p *Pipeline) FitTransform(docs ...string) (mat.Matrix, error) {
 }
 
 
-type CountVectoriserJson struct {
-	Vocabulary map[string]int
-}
-
 
 //
 func (c *CountVectoriser) Save(w io.Writer) error {
-
-	vjson := CountVectoriserJson{Vocabulary : c.Vocabulary}
-
-	buf, err := json.Marshal(vjson)
+	buf, err := json.Marshal(c.Vocabulary)
 	if err != nil {
 		return err
 	}
@@ -337,11 +330,5 @@ func (c *CountVectoriser) Save(w io.Writer) error {
 //
 func (c *CountVectoriser) Load(r io.Reader) error {
   	dec := json.NewDecoder(r)
-	vjson := CountVectoriserJson{}
-	err := dec.Decode( &vjson)
-	if err != nil {
-		return err
-	}
-	c.Vocabulary = vjson.Vocabulary
-	return nil
+	return dec.Decode( &c.Vocabulary)
 }
