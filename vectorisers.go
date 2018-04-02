@@ -336,14 +336,9 @@ func (c *CountVectoriser) Save(w io.Writer) error {
 
 //
 func (c *CountVectoriser) Load(r io.Reader) error {
-	buf := make([]byte, 0)
-	_, err := r.Read(buf)
-	if err != nil {
-		return  err
-	}
-
+  	dec := json.NewDecoder(r)
 	vjson := CountVectoriserJson{}
-	err = json.Unmarshal(buf, &vjson)
+	err := dec.Decode( &vjson)
 	if err != nil {
 		return err
 	}
