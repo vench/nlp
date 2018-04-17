@@ -106,3 +106,8 @@ func (t *TfidfTransformer) Load(r io.Reader) error {
 
 	return nil
 }
+
+//
+func (t *TfidfTransformer) GetTransform() *sparse.DIA {
+	return t.transform
+}
