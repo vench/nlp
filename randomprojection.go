@@ -315,7 +315,7 @@ func (r *RandomIndexing) Transform(matrix mat.Matrix) (mat.Matrix, error) {
 	colDoer, isColDoer := m.(mat.ColNonZeroDoer)
 
 	for j := 0; j < cols; j++ {
-		featVec := sparse.NewVecCOO(k, []int{0}, []float64{0})
+		featVec := sparse.NewVector(k, []int{0}, []float64{0})
 		if isColDoer {
 			colDoer.DoColNonZero(j, func(i, j int, v float64) {
 				idxVec := r.elementalVecs.(mat.ColViewer).ColView(i)
