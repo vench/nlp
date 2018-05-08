@@ -181,7 +181,7 @@ func (v *CountVectoriser) Transform(docs ...string) (mat.Matrix, error) {
 	}
 
 	if isEmpty {
-		return sparse.NewCSR(0, 0, []int{}, []int{}, []float64{}), nil
+		return sparse.NewCSR(len(v.Vocabulary), len(docs), []int{}, []int{}, []float64{}), nil
 	}
 
 	return mat.ToCSR(), nil
