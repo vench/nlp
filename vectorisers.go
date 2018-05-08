@@ -167,6 +167,7 @@ func (v *CountVectoriser) Fit(train ...string) Vectoriser {
 // that document.  The returned matrix is a sparse matrix type.
 func (v *CountVectoriser) Transform(docs ...string) (mat.Matrix, error) {
 	mat := sparse.NewDOK(len(v.Vocabulary), len(docs))
+	isEmpty := true
 
 	for d, doc := range docs {
 		v.Tokeniser.ForEachIn(doc, func(word string) {
@@ -174,9 +175,15 @@ func (v *CountVectoriser) Transform(docs ...string) (mat.Matrix, error) {
 
 			if exists {
 				mat.Set(i, d, mat.At(i, d)+1)
+				isEmpty = false
 			}
 		})
 	}
+
+	if isEmpty {
+		return sparse.NewCSR(0, 0, []int{}, []int{}, []float64{}), nil
+	}
+
 	return mat.ToCSR(), nil
 }
 
