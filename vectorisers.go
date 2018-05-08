@@ -9,6 +9,7 @@ import (
 	"gonum.org/v1/gonum/mat"
 	"io"
 	"encoding/json"
+	"errors"
 )
 
 // Vectoriser provides a common interface for vectorisers that take a variable
@@ -181,7 +182,7 @@ func (v *CountVectoriser) Transform(docs ...string) (mat.Matrix, error) {
 	}
 
 	if isEmpty {
-		return sparse.NewCSR(len(v.Vocabulary), len(docs), []int{}, []int{}, []float64{}), nil
+		return nil, errors.New("Text not exists in Vocabulary")
 	}
 
 	return mat.ToCSR(), nil
