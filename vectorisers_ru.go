@@ -2,7 +2,7 @@ package nlp
 
 import (
 	"strings"
-	"github.com/opennota/morph"
+	"github.com/vench/morph"
 	"unicode"
 )
 
