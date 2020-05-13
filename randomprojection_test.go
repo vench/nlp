@@ -87,7 +87,7 @@ func TestRandomProjection(t *testing.T) {
 	}
 
 	for ti, test := range tests {
-		matrix := sparse.Random(sparse.CSRFormat, test.rows, test.cols, test.density).(sparse.TypeConverter).ToCSR()
+		matrix := sparse.Random(sparse.CSRFormat, test.rows, test.cols, test.density).(sparse.TypeConverter).ToCSC()
 		query := matrix.ColView(0)
 
 		// When transformed using sign random projections
@@ -148,7 +148,7 @@ func TestRandomIndexing(t *testing.T) {
 	}
 
 	for ti, test := range tests {
-		matrix := sparse.Random(sparse.CSRFormat, test.rows, test.cols, test.density).(sparse.TypeConverter).ToCSR()
+		matrix := sparse.Random(sparse.CSRFormat, test.rows, test.cols, test.density).(sparse.TypeConverter).ToCSC()
 		query := matrix.ColView(0)
 
 		// When transformed using sign random projections
@@ -209,7 +209,7 @@ func TestReflectiveRandomIndexing(t *testing.T) {
 	}
 
 	for ti, test := range tests {
-		matrix := sparse.Random(sparse.CSRFormat, test.rows, test.cols, test.density).(sparse.TypeConverter).ToCSR()
+		matrix := sparse.Random(sparse.CSRFormat, test.rows, test.cols, test.density).(sparse.TypeConverter).ToCSC()
 		query := matrix.ColView(0)
 
 		// When transformed using sign random projections
