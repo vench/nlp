@@ -10,6 +10,8 @@ github.com/spaolacci/murmur3 v1.1.0 h1:7c1g84S4BPRrfL5Xrdp6fOJ206sU9y293DDHaoy0b
 github.com/spaolacci/murmur3 v1.1.0/go.mod h1:JwIasOWyU6f++ZhiEuf87xNszmSA2myDM2Kzu9HwQUA=
 github.com/vench/morph v0.0.0-20171111025751-abd0302882d3 h1:XdSvalh3Qm2g+tY7II78wffwMexiK05TSbAC7GEWTV8=
 github.com/vench/morph v0.0.0-20171111025751-abd0302882d3/go.mod h1:oyYVIPFUVPkf40GYgjsGYRssJq3a4djpcn1GvzSiB0Y=
+github.com/vench/morph v0.0.1 h1:0JPPx4J2AsKkVo9xP3808Gqn/i/SFRMniAz/2NvdDLc=
+github.com/vench/morph v0.0.1/go.mod h1:oyYVIPFUVPkf40GYgjsGYRssJq3a4djpcn1GvzSiB0Y=
 golang.org/x/exp v0.0.0-20180321215751-8460e604b9de/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20180807140117-3d87b88a115f/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
 golang.org/x/exp v0.0.0-20190125153040-c74c464bbbf2 h1:y102fOLFqhV41b+4GPiJoa0k/x+pJcEi2/HB1Y5T6fU=

@@ -2,12 +2,17 @@ package nlp
 
 
 import (
+	"github.com/vench/morph"
 	"testing"
 	"fmt"
 )
 
 func TestModeWord(t *testing.T) {
 
+	err := morph.Init()
+	if err != nil {
+		t.Fatal(err)
+	}
 	fmt.Println("TestModeWord")
 
 	tests := []struct{
